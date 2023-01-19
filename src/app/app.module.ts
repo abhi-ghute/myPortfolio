@@ -6,17 +6,25 @@ import { AppComponent } from './app.component';
 import { SignINComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderFooterComponent } from './header-footer/header-footer.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SignINComponent,
     SignUpComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    HeaderFooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

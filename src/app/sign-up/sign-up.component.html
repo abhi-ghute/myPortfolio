@@ -1,1 +1,40 @@
-<p>sign-up works!</p>
+<div class="row d-flex justify-content-center">
+  <div>
+    <h2>Sign Up form</h2>
+  </div>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+      <div *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.invalid">
+        <div *ngIf="signupForm.get('name')?.errors?.['required']" style="color: red;">Name is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+      <div *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid">
+        <div *ngIf="signupForm.get('email')?.errors?.['required']" style="color: red;">Email is required</div>
+        <div *ngIf="signupForm.get('email')?.errors?.['email']" style="color: red;">Invalid email address</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" formControlName="password">
+      <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">
+        <div *ngIf="signupForm.get('password')?.errors?.['required']" style="color: red;">Password is required</div>
+        <div *ngIf="signupForm.get('password')?.errors?.['minlength']" style="color: red;">Password must be at least 8 characters</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="mobileNo">Mobile No.</label>
+      <input type="number" class="form-control" id="mobileNo" formControlName="mobileNo">
+      <div *ngIf="signupForm.get('mobileNo')?.touched && signupForm.get('mobileNo')?.invalid">
+        <div *ngIf="signupForm.get('mobileNo')?.errors?.['required']" style="color: red;">mobileNo is required</div>
+        <div *ngIf="signupForm.get('mobileNo')?.errors?.['minlength']" style="color: red;">mobileNo must be 10 digit</div>
+      </div>
+    </div>
+    <br>
+    <button class="btn btn-primary" [disabled]="signupForm.invalid" type="submit">Sign Up</button>
+</form>
+</div>
