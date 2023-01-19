@@ -35,5 +35,6 @@ export class SignUpComponent implements OnInit{
     }
     console.warn(this.signupForm.value);
     this.authservice.saveUser(this.signupForm.value)
+    this.router.navigateByUrl('/signin');
   }
 }
